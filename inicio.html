@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G&M Constructora | Empresa Constructora Godoy & Méndez SpA</title>
+    <!-- Tipografía moderna y robusta -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === VARIABLES DE COLOR (Basadas en el Logo G&M Constructora) === */
+        :root {
+            --gm-blue: #00315C;       /* Azul marino principal del logo */
+            --gm-blue-dark: #001F3B;  /* Azul profundo para fondos y hover */
+            --gm-blue-light: #0A4B85; /* Azul secundario */
+            --gm-grey: #6E7378;       /* Gris del símbolo "&" y texto "CONSTRUCTORA" */
+            --gm-grey-light: #F4F6F8; /* Fondo gris claro para secciones */
+            --gm-white: #FFFFFF;
+            --wsp-green: #25D366;     /* Verde oficial WhatsApp */
+            --wsp-green-dark: #1DA851;
+            --accent-amber: #F59E0B;  /* Detalle constructora / seguridad */
+            --shadow: 0 10px 30px rgba(0, 49, 92, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #2D3748;
+            background-color: var(--gm-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* === BARRA SUPERIOR INFORMATIVA === */
+        .top-bar {
+            background-color: var(--gm-blue-dark);
+            color: var(--gm-white);
+            font-size: 0.85rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar-info span {
+            margin-right: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .top-bar-info i {
+            color: var(--accent-amber);
+        }
+
+        /* === NAVEGACIÓN Y LOGO === */
+        header {
+            background-color: var(--gm-white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Recreación exacta del Logo G&M en código para máxima nitidez */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            user-select: none;
+        }
+
+        .logo-gm {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .logo-gm .letter {
+            color: var(--gm-blue);
+        }
+
+        .logo-gm .amp {
+            color: var(--gm-grey);
+            font-weight: 400;
+            font-size: 1.9rem;
+            margin: 0 -2px;
+            font-family: Georgia, serif;
+        }
+
+        .logo-sub {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .logo-sub::before, .logo-sub::after {
+            content: "";
+            flex: 1;
+            height: 1.5px;
+            background-color: var(--gm-blue);
+        }
+
+        .logo-sub span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 600;
+            letter-spacing: 3.5px;
+            color: var(--gm-grey);
+            padding: 0 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gm-blue-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gm-grey);
+        }
+
+        .btn-wsp-nav {
+            background-color: var(--wsp-green);
+            color: var(--gm-white) !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-wsp-nav:hover {
+            background-color: var(--wsp-green-dark);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.6rem;
+            color: var(--gm-blue);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 31, 59, 0.92) 0%, rgba(0, 49, 92, 0.82) 100%),
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: var(--gm-white);
+            padding: 90px 5%;
+            display: flex;
+            align-items: center;
+            min-height: 82vh;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .badge-hero {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.12);
+            border-left: 4px solid var(--accent-amber);
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-amber);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #E2E8F0;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-wsp {
+            background-color: var(--wsp-green);
+            color: var(--gm-white);
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary-wsp:hover {
+            background-color: var(--wsp-green-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--gm-white);
+            text-decoration: none;
+            padding: 15px 28px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gm-white);
+            color: var(--gm-blue);
+            border-color: var(--gm-white);
+        }
+
+        /* Tarjeta Cotizador Rápido en Hero */
+        .quick-quote-card {
+            background: var(--gm-white);
+            color: #2D3748;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            border-top: 6px solid var(--gm-blue);
+        }
+
+        .quick-quote-card h3 {
+            color: var(--gm-blue);
+            font-size: 1.35rem;
+            margin-bottom: 8px;
+        }
+
+        .quick-quote-card p {
+            color: var(--gm-grey);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gm-blue-dark);
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #CBD5E0;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--gm-blue);
+            box-shadow: 0 0 0 3px rgba(0, 49, 92, 0.1);
+        }
+
+        /* === CARACTERÍSTICAS / VENTAJAS === */
+        .features-strip {
+            background-color: var(--gm-grey-light);
+            padding: 40px 5%;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: var(--gm-white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--gm-blue);
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            color: var(--gm-blue);
+            background: rgba(0, 49, 92, 0.08);
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            color: var(--gm-blue-dark);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            color: var(--gm-grey);
+        }
+
+        /* === SECCIONES GENERALES === */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-tag {
+            color: var(--gm-grey);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            color: var(--gm-blue);
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--gm-grey);
+        }
+
+        /* === SECCIÓN SERVICIOS CON FILTRO === */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--gm-grey-light);
+            border: 2px solid transparent;
+            color: var(--gm-blue-dark);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gm-blue);
+            color: var(--gm-white);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--gm-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #E2E8F0;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gm-blue);
+        }
+
+        .service-body {
+            padding: 28px;
+        }
+
+        .service-cat-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background: rgba(0, 49, 92, 0.1);
+            color: var(--gm-blue);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            color: var(--gm-blue);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: var(--gm-blue-dark);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--gm-grey);
+            font-size: 0.92rem;
+            margin-bottom: 15px;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .service-list li {
+            font-size: 0.88rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #4A5568;
+        }
+
+        .service-list li i {
+            color: var(--wsp-green);
+            font-size: 0.8rem;
+        }
+
+        .service-footer {
+            padding: 16px 28px;
+            background: var(--gm-grey-light);
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .btn-card-wsp {
+            width: 100%;
+            background: var(--gm-blue);
+            color: var(--gm-white);
+            border: none;
+            padding: 11px;
+            border-radius: 6px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-card-wsp:hover {
+            background: var(--wsp-green);
+        }
+
+        /* === DESTACADO ESPECIAL: CAMBIO DE TECHOS / PIZARREÑO === */
+        .highlight-banner {
+            background: linear-gradient(90deg, var(--gm-blue-dark) 0%, var(--gm-blue) 100%);
+            color: var(--gm-white);
+            border-radius: 16px;
+            max-width: 1200px;
+            margin: 60px auto 0 auto;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            box-shadow: var(--shadow);
+            border-left: 8px solid var(--accent-amber);
+        }
+
+        .highlight-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .highlight-text h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .highlight-text h3 i {
+            color: var(--accent-amber);
+        }
+
+        .highlight-text p {
+            color: #CBD5E0;
+            font-size: 0.98rem;
+        }
+
+        /* === GALERÍA DE TRABAJOS (VITRINA / BLOG) === */
+        .portfolio-section {
+            background-color: var(--gm-grey-light);
+        }
+
+        .portfolio-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            background: var(--gm-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .portfolio-img-wrapper {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+            background-color: var(--gm-blue-dark);
+        }
+
+        .portfolio-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .status-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gm-blue);
+            color: var(--gm-white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .portfolio-info {
+            padding: 22px;
+        }
+
+        .portfolio-info h4 {
+            color: var(--gm-blue-dark);
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+
+        .portfolio-info p {
+            color: var(--gm-grey);
+            font-size: 0.9rem;
+        }
+
+        /* === EQUIPO DE TRABAJO (FORMATO RETRATO / CARNET) === */
+        .team-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            background: var(--gm-white);
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--gm-blue);
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Marco de foto formato retrato de hombros hacia arriba */
+        .portrait-frame {
+            width: 120px;
+            height: 140px;
+            margin: 0 auto 18px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid var(--gm-blue);
+            background-color: #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-card h4 {
+            color: var(--gm-blue-dark);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            display: inline-block;
+            color: var(--gm-blue);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            background: rgba(0, 49, 92, 0.08);
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+
+        .team-card p {
+            font-size: 0.85rem;
+            color: var(--gm-grey);
+        }
+
+        /* === FOOTER Y RESPALDO LEGAL === */
+        footer {
+            background-color: var(--gm-blue-dark);
+            color: #CBD5E0;
+            padding: 60px 5% 25px 5%;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo-box {
+            background: var(--gm-white);
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: var(--gm-white);
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            border-left: 3px solid var(--accent-amber);
+            padding-left: 10px;
+        }
+
+        .legal-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .legal-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .legal-list i {
+            color: var(--accent-amber);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gm-grey);
+        }
+
+        /* === BOTÓN FLOTANTE DE WHATSAPP === */
+        .floating-wsp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--wsp-green);
+            color: var(--gm-white);
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .floating-wsp:hover {
+            transform: scale(1.1);
+            background-color: var(--wsp-green-dark);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 950px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--gm-white);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR CON DATOS LEGALES Y DE COBERTURA -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span><i class="fas fa-building"></i> Empresa Constructora Godoy & Méndez SpA | RUT: 78.527.688-4</span>
+            <span><i class="fas fa-map-marker-alt"></i> Quintero, Región de Valparaíso y alrededores</span>
+        </div>
+        <div class="top-bar-info">
+            <span><i class="fas fa-home"></i> Atención y Visitas Técnicas a Domicilio</span>
+        </div>
+    </div>
+
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo fiel a la imagen proporcionada -->
+            <a href="#" class="logo-container" title="G&M Constructora">
+                <div class="logo-gm">
+                    <span class="letter">G</span>
+                    <span class="amp">&amp;</span>
+                    <span class="letter">M</span>
+                </div>
+                <div class="logo-sub">
+                    <span>CONSTRUCTORA</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#techumbres">Retiro Pizarreño</a></li>
+                <li><a href="#trabajos">Nuestros Trabajos</a></li>
+                <li><a href="#equipo">Quiénes Somos</a></li>
+                <li>
+                    <a href="javascript:void(0)" onclick="contactarWsp('Hola G&M Constructora, me gustaría realizar una consulta y solicitar una visita/cotización.')" class="btn-wsp-nav">
+                        <i class="fab fa-whatsapp"></i> Contacto Directo
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO PRINCIPAL CON ARMADOR DE COTIZACIÓN SIN PRECIOS FIJOS -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div>
+                <span class="badge-hero">Soluciones Integrales a Domicilio</span>
+                <h1>Desde una reparación en casa hasta tu <span>proyecto de construcción</span> completo.</h1>
+                <p>En <strong>G&M Constructora</strong> vamos directamente a tu domicilio. Realizamos desde arreglos de gasfitería, electricidad, cerámica y pintura, hasta ampliaciones, estructuras metálicas, cambio de techumbres y obras civiles.</p>
+                
+                <div class="hero-buttons">
+                    <button onclick="contactarWsp('Hola G&M Constructora, necesito coordinar una visita o presupuesto para un trabajo.')" class="btn-primary-wsp">
+                        <i class="fab fa-whatsapp fa-lg"></i> Hablar por WhatsApp Ahora
+                    </button>
+                    <a href="#servicios" class="btn-secondary">Ver Todos los Servicios</a>
+                </div>
+            </div>
+
+            <!-- Formulario interactivo que arma el mensaje de WhatsApp -->
+            <div class="quick-quote-card">
+                <h3><i class="fab fa-whatsapp" style="color: var(--wsp-green);"></i> Solicita tu Cotización</h3>
+                <p>Cada proyecto es único. Cuéntanos qué necesitas y te daremos atención personalizada en terreno.</p>
+                
+                <form id="wspForm" onsubmit="enviarFormularioWsp(event)">
+                    <div class="form-group">
+                        <label for="nombreCliente">Tu Nombre</label>
+                        <input type="text" id="nombreCliente" placeholder="Ej: María González" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comunaCliente">Comuna / Sector</label>
+                        <input type="text" id="comunaCliente" placeholder="Ej: Quintero, Concón, Viña del Mar..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoServicio">¿Qué trabajo necesitas realizar?</label>
+                        <select id="tipoServicio" required>
+                            <option value="" disabled selected>Selecciona una opción...</option>
+                            <option value="Reparación a Domicilio (Gasfitería / Llaves / Enchufes / Focos)">Reparación a Domicilio (Gasfitería / Electricidad)</option>
+                            <option value="Pintura, Cerámica o Cambio de Piso">Pintura, Cerámica o Cambio de Piso</option>
+                            <option value="Ampliación, Construcción o Remodelación de Baño/Cocina">Ampliación o Remodelación</option>
+                            <option value="Cambio de Techumbre / Retiro de Pizarreño">Cambio de Techumbre / Retiro de Pizarreño</option>
+                            <option value="Soldadura, Rejas, Protecciones o Cobertizos">Soldadura, Rejas y Protecciones</option>
+                            <option value="Obras Civiles, Pavimentación o Jardinería/Piscinas">Obras Civiles, Jardinería o Piscinas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="detalleTrabajo">Breve descripción</label>
+                        <textarea id="detalleTrabajo" rows="2" placeholder="Cuéntanos brevemente lo que necesitas hacer..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary-wsp" style="width: 100%; justify-content: center;">
+                        <i class="fab fa-whatsapp"></i> Enviar Consulta al WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRANJA DE COMPROMISO -->
+    <div class="features-strip">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-tools"></i></div>
+                <div>
+                    <h4>Todo en un solo lugar</h4>
+                    <p>Desde cambiar una llave o un foco hasta levantar una casa o ampliación desde cero.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-house-user"></i></div>
+                <div>
+                    <h4>100% a Domicilio</h4>
+                    <p>Evaluamos en terreno para darte un presupuesto justo y acorde a la realidad de tu obra.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
+                <div>
+                    <h4>Empresa Formalizada</h4>
+                    <p>Respaldo legal como Empresa Constructora Godoy & Méndez SpA para clientes y proyectos.</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                <div>
+                    <h4>Trato Directo y Cercano</h4>
+                    <p>Sin intermediarios ni registros engorrosos: hablas directo con nosotros por WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN DE SERVICIOS -->
+    <section id="servicios">
+        <div class="section-header">
+            <span class="section-tag">Especialidades G&M</span>
+            <h2>Nuestros Servicios de Construcción y Reparación</h2>
+            <p>Selecciona la categoría que buscas y cotiza directamente con nuestro equipo sin compromiso.</p>
+        </div>
+
+        <!-- Botones de filtro JS -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filtrarServicios('todos', this)">Todos los Servicios</button>
+            <button class="filter-btn" onclick="filtrarServicios('domicilio', this)">Reparaciones y Terminaciones</button>
+            <button class="filter-btn" onclick="filtrarServicios('construccion', this)">Construcción y Ampliaciones</button>
+            <button class="filter-btn" onclick="filtrarServicios('exterior', this)">Obras Civiles y Exterior</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid">
+            <!-- Tarjeta 1: Gasfitería y Electricidad -->
+            <div class="service-card" data-category="domicilio">
+                <div class="service-body">
+                    <span class="service-cat-badge">A Domicilio</span>
+                    <div class="service-icon"><i class="fas fa-faucet"></i></div>
+                    <h3>Gasfitería y Electricidad</h3>
+                    <p>Atendemos urgencias y mantenciones del hogar de forma rápida y segura.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Reparación y cambio de llaves / grifería</li>
+                        <li><i class="fas fa-check"></i> Cambio de focos, ampolletas y enchufes</li>
+                        <li><i class="fas fa-check"></i> Instalaciones sanitarias, agua y gas</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <button onclick="contactarWsp('Hola G&M, necesito cotizar un trabajo de Gasfitería / Electricidad a domicilio.')" class="btn-card-wsp">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Cerámica, Pisos y Pintura -->
+            <div class="service-card" data-category="domicilio">
+                <div class="service-body">
+                    <span class="service-cat-badge">Terminaciones</span>
+                    <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                    <h3>Pintura, Cerámicos y Pisos</h3>
+                    <p>Renovamos tus habitaciones, baños, cocinas y fachadas con acabados de primera calidad.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Instalación de cerámicos y porcelanato</li>
+                        <li><i class="fas fa-check"></i> Cambio de piso completo en casas</li>
+                        <li><i class="fas fa-check"></i> Pintura interior y exterior de habitaciones</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <button onclick="contactarWsp('Hola G&M, quiero consultar por instalación de cerámica, cambio de piso o pintura.')" class="btn-card-wsp">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Ampliaciones y Casas -->
+            <div class="service-card" data-category="construccion">
+                <div class="service-body">
+                    <span class="service-cat-badge">Obras Mayores</span>
+                    <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Construcción y Ampliaciones</h3>
+                    <p>Ejecutamos proyectos de edificación habitacional y comercial en albañilería y carpintería.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Construcción de casas, cabañas y habitaciones</li>
+                        <li><i class="fas fa-check"></i> Remodelación completa de baños y cocinas</li>
+                        <li><i class="fas fa-check"></i> Albañilería, radieres y carpintería general</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <button onclick="contactarWsp('Hola G&M, me interesa cotizar una ampliación, remodelación o proyecto de construcción.')" class="btn-card-wsp">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Soldadura, Rejas y Protecciones -->
+            <div class="service-card" data-category="construccion">
+                <div class="service-body">
+                    <span class="service-cat-badge">Estructuras Metálicas</span>
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Soldadura, Rejas y Protecciones</h3>
+                    <p>Seguridad y firmeza para tu propiedad con estructuras metálicas a medida.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Confección e instalación de rejas y portones</li>
+                        <li><i class="fas fa-check"></i> Protecciones para ventanas y accesos</li>
+                        <li><i class="fas fa-check"></i> Cobertizos, galpones y estructuras soldadas</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <button onclick="contactarWsp('Hola G&M, quiero cotizar un trabajo de soldadura, rejas o protecciones.')" class="btn-card-wsp">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5: Cambio de Techumbres -->
+            <div class="service-card" data-category="construccion">
+                <div class="service-body">
+                    <span class="service-cat-badge">Especialidad Techos</span>
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3>Renovación de Techumbres</h3>
+                    <p>Reemplazo seguro de techos antiguos y filtraciones para viviendas y proyectos municipales.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Reemplazo de planchas de pizarreño (alto en sílice)</li>
+                        <li><i class="fas fa-check"></i> Instalación de zinc, teja asfáltica y canaletas</li>
+                        <li><i class="fas fa-check"></i> Reparación de cerchas y aislación térmica</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <button onclick="contactarWsp('Hola G&M, necesito consultar por cambio o reparación de techumbre / retiro de pizarreño.')" class="btn-card-wsp">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 6: Obras Civiles, Jardinería y Piscinas -->
+            <div class="service-card" data-category="exterior">
+                <div class="service-body">
+                    <span class="service-cat-badge">Exterior y Obras Civiles</span>
+                    <div class="service-icon"><i class="fas fa-truck-pickup"></i></div>
+                    <h3>Obras Civiles, Jardines y Piscinas</h3>
+                    <p>Soluciones integrales para terrenos, exteriores y mantención de espacios.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Pavimentación, excavaciones y movimiento de tierra</li>
+                        <li><i class="fas fa-check"></i> Transporte de materiales y áridos</li>
+                        <li><i class="fas fa-check"></i> Jardinería integral y limpieza de piscinas</li>
+                    </ul>
+                </div>
+                <div class="service-footer">
+                    <button onclick="contactarWsp('Hola G&M, deseo cotizar servicios de obras civiles, pavimentación, jardinería o piscinas.')" class="btn-card-wsp">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- BANNER ESPECIAL PROYECTOS DE TECHUMBRE / PIZARREÑO -->
+        <div class="highlight-banner" id="techumbres">
+            <div class="highlight-text">
+                <h3><i class="fas fa-exclamation-triangle"></i> ¿Tu techo aún es de Pizarreño antiguo?</h3>
+                <p>El pizarreño antiguo contiene altos niveles de sílice y materiales que se deterioran con los años. En <strong>G&M Constructora</strong> realizamos el recambio completo de techumbres para hogares particulares y proyectos comunitarios/municipales, dejando tu hogar seguro, moderno y libre de filtraciones.</p>
+            </div>
+            <div>
+                <button onclick="contactarWsp('Hola G&M Constructora, quiero solicitar evaluación para cambio de techo de pizarreño.')" class="btn-primary-wsp">
+                    <i class="fab fa-whatsapp"></i> Evaluar mi Techo por WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN GALERÍA DE TRABAJOS REALIZADOS (FORMATO BLOG / VITRINA) -->
+    <section class="portfolio-section" id="trabajos">
+        <div class="section-header">
+            <span class="section-tag">Nuestra Vitrina de Obras</span>
+            <h2>Trabajos Realizados y en Ejecución</h2>
+            <p>Conoce parte de nuestras obras terminadas y proyectos recientes a pedido de nuestros clientes.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-img-wrapper">
+                    <span class="status-tag">Obra Terminada</span>
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Remodelación de Baño y Cerámica">
+                </div>
+                <div class="portfolio-info">
+                    <h4>Remodelación de Baños y Cerámica</h4>
+                    <p>Instalación completa de piso cerámico, revestimiento de muros, cambio de grifería e instalaciones sanitarias a domicilio.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img-wrapper">
+                    <span class="status-tag">Especialidad</span>
+                    <img src="https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=800&q=80" alt="Cambio de Techumbres y Estructuras">
+                </div>
+                <div class="portfolio-info">
+                    <h4>Cambio de Techumbres y Ampliaciones</h4>
+                    <p>Retiro de cubiertas antiguas y montaje de estructuras nuevas en madera y metal para mayor durabilidad y seguridad.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-img-wrapper">
+                    <span class="status-tag">Terminaciones</span>
+                    <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80" alt="Pintura y Renovación Interior">
+                </div>
+                <div class="portfolio-info">
+                    <h4>Pintura, Pisos y Carpintería</h4>
+                    <p>Renovación de habitaciones, cambio de pisos, instalación de enchufes/luminarias y protecciones metálicas a medida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN QUIÉNES SOMOS / EQUIPO DE TRABAJO (FORMATO RETRATO DE HOMBROS HACIA ARRIBA) -->
+    <section id="equipo">
+        <div class="section-header">
+            <span class="section-tag">Confianza y Compromiso</span>
+            <h2>Nuestro Equipo de Trabajo</h2>
+            <p>Conoce a las personas detrás de <strong>G&M Constructora</strong>. Te atendemos personalmente en cada visita para brindarte total confianza y respaldo.</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Integrante 1: Gerente General según Escritura -->
+            <div class="team-card">
+                <div class="portrait-frame">
+                    <!-- Reemplazar src por la foto tipo carnet del cliente -->
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Edgardo Félix Godoy Bahamóndez">
+                </div>
+                <h4>Edgardo Félix Godoy B.</h4>
+                <span class="team-role">Gerente General / Socio Fundador</span>
+                <p>Representante Legal de Empresa Constructora Godoy & Méndez SpA. Supervisión directa de proyectos y presupuestos.</p>
+            </div>
+
+            <!-- Integrante 2: Socio / Jefe de Obras -->
+            <div class="team-card">
+                <div class="portrait-frame">
+                    <!-- Reemplazar src por la foto tipo carnet del socio -->
+                    <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&fit=crop&w=400&q=80" alt="Socio Méndez - Jefe de Obras">
+                </div>
+                <h4>Socio & Maestro Mayor</h4>
+                <span class="team-role">Jefe de Terreno y Obras</span>
+                <p>Especialista en ejecución de obras civiles, ampliaciones, techumbres y coordinación técnica a domicilio.</p>
+            </div>
+
+            <!-- Integrante 3: Especialista Terminaciones -->
+            <div class="team-card">
+                <div class="portrait-frame">
+                    <!-- Reemplazar src por la foto tipo carnet del trabajador -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Especialista en Albañilería y Cerámica">
+                </div>
+                <h4>Especialista de Obra</h4>
+                <span class="team-role">Albañilería, Cerámica y Pintura</span>
+                <p>Encargado de terminaciones finas, remodelación de baños, instalación de pisos y revestimientos.</p>
+            </div>
+
+            <!-- Integrante 4: Especialista Instalaciones -->
+            <div class="team-card">
+                <div class="portrait-frame">
+                    <!-- Reemplazar src por la foto tipo carnet del trabajador -->
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Especialista Gasfitería y Soldadura">
+                </div>
+                <h4>Técnico Especialista</h4>
+                <span class="team-role">Gasfitería, Electricidad y Soldadura</span>
+                <p>Reparaciones a domicilio, grifería, instalaciones eléctricas, portones, rejas y protecciones metálicas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO CON DATOS DEL ESTATUTO -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo-box">
+                    <div class="logo-gm">
+                        <span class="letter">G</span>
+                        <span class="amp">&amp;</span>
+                        <span class="letter">M</span>
+                    </div>
+                    <div class="logo-sub">
+                        <span>CONSTRUCTORA</span>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem; margin-bottom: 15px;">
+                    Construcción, remodelación, reparaciones a domicilio y obras civiles con atención directa y personalizada.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Información Corporativa</h4>
+                <ul class="legal-list">
+                    <li><i class="fas fa-check-circle"></i> <span><strong>Razón Social:</strong> Empresa Constructora Godoy & Méndez SpA</span></li>
+                    <li><i class="fas fa-id-card"></i> <span><strong>Nombre de Fantasía:</strong> Constructora G & M SpA</span></li>
+                    <li><i class="fas fa-file-invoice"></i> <span><strong>RUT Sociedad:</strong> 78.527.688-4</span></li>
+                    <li><i class="fas fa-user-tie"></i> <span><strong>Gerente General:</strong> Edgardo Félix Godoy Bahamóndez</span></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto y Ubicación</h4>
+                <ul class="legal-list">
+                    <li><i class="fas fa-map-marker-alt"></i> <span><strong>Domicilio Matriz:</strong> Quintero, Región de Valparaíso, Chile.</span></li>
+                    <li><i class="fas fa-car"></i> <span><strong>Modalidad:</strong> Visitas y trabajos 100% a domicilio.</span></li>
+                    <li><i class="fab fa-whatsapp"></i> <span><strong>Cotizaciones:</strong> Atención directa vía WhatsApp.</span></li>
+                </ul>
+                <button onclick="contactarWsp('Hola G&M Constructora, les escribo desde su página web.')" class="btn-primary-wsp" style="margin-top: 10px; padding: 10px 18px; font-size: 0.9rem;">
+                    <i class="fab fa-whatsapp"></i> Escribir al WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 G&M Constructora (Empresa Constructora Godoy & Méndez SpA). Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="javascript:void(0)" onclick="contactarWsp('Hola G&M Constructora, necesito hacer una consulta sobre un trabajo a domicilio.')" class="floating-wsp" title="Hablar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT INTEGRADO -->
+    <script>
+        // =========================================================================
+        // CONFIGURACIÓN DEL NÚMERO DE WHATSAPP DEL CLIENTE
+        // Reemplaza los dígitos después del 569 por el número oficial de la empresa
+        // =========================================================================
+        const NUMERO_WHATSAPP = "56900000000";
+
+        // Función para abrir WhatsApp con mensaje personalizado
+        function contactarWsp(mensaje) {
+            const textoCodificado = encodeURIComponent(mensaje);
+            const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${textoCodificado}`;
+            window.open(url, '_blank');
+        }
+
+        // Función para el formulario cotizador del inicio
+        function enviarFormularioWsp(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombreCliente').value.trim();
+            const comuna = document.getElementById('comunaCliente').value.trim();
+            const servicio = document.getElementById('tipoServicio').value;
+            const detalle = document.getElementById('detalleTrabajo').value.trim();
+
+            let mensaje = `Hola *G&M Constructora*, mi nombre es *${nombre}* (Sector: ${comuna}).\n\n`;
+            mensaje += `Me gustaría cotizar: *${servicio}*.\n`;
+            if (detalle !== "") {
+                mensaje += `Detalle del trabajo: ${detalle}\n`;
+            }
+            mensaje += `\n¿Podemos coordinar una consulta o visita técnica?`;
+
+            contactarWsp(mensaje);
+        }
+
+        // Función para filtrar las tarjetas de servicios por categoría
+        function filtrarServicios(categoria, botonClickeado) {
+            const botones = document.querySelectorAll('.filter-btn');
+            botones.forEach(btn => btn.classList.remove('active'));
+            botonClickeado.classList.add('active');
+
+            const tarjetas = document.querySelectorAll('.service-card');
+            tarjetas.forEach(tarjeta => {
+                if (categoria === 'todos' || tarjeta.getAttribute('data-category') === categoria) {
+                    tarjeta.style.display = 'flex';
+                } else {
+                    tarjeta.style.display = 'none';
+                }
+            });
+        }
+
+        // Menú móvil desplegable
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
