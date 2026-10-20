@@ -30,7 +30,41 @@ Este proyecto consistió en una **consultoría digital y desarrollo full-stack i
 
 ---
 
-## 🛠️ 2. Especialidades y Servicios Destacados
+## 📸 2. Capturas del Sitio en Producción
+
+### 🖥️ Portada Principal (Hero & Identidad Corporativa)
+*Diseño limpio con tipografía corporativa en CSS puro, propuesta de valor y acceso directo a cotizaciones.*
+
+<p align="center">
+  <img src="docs/img/01-inicio-hero.png" alt="Portada Principal G&M Constructora" width="100%">
+</p>
+
+### 🧰 Catálogo de Servicios con Filtros Interactivos
+*Filtros dinámicos sin recarga entre Reparaciones, Construcción y Obras de Exterior con botones de acción directa.*
+
+<p align="center">
+  <img src="docs/img/02-catalogo-servicios.png" alt="Catálogo de Especialidades G&M Constructora" width="100%">
+</p>
+
+### 🏗️ Galería de Obras y Proyectos Reales
+*Vitrina de obras documentadas en terreno: techumbres, ampliaciones, cobertizos y remodelación de baños.*
+
+<p align="center">
+  <img src="docs/img/03-galeria-obras.png" alt="Galería de Obras Reales G&M Constructora" width="100%">
+</p>
+
+### 📱 Experiencia Móvil y Respaldo Corporativo
+*Diseño 100% responsivo para celulares junto a la sección de equipo y datos estatutarios de la SpA.*
+
+<p align="center">
+  <img src="docs/img/04-equipo-corporativo.png" alt="Equipo de Trabajo y Datos Corporativos" width="67%" style="vertical-align: top;">
+  &nbsp;
+  <img src="docs/img/05-vista-movil.png" alt="Vista en Teléfono Celular" width="29%" style="vertical-align: top;">
+</p>
+
+---
+
+## 🛠️ 3. Especialidades y Servicios Destacados
 
 1. **Reparaciones y Terminaciones a Domicilio:** Gasfitería, electricidad, grifería, instalación de cerámicos, porcelanato y pintura interior/exterior.
 2. **Cambio de Techumbres y Retiro de Pizarreño:** Especialidad en recambio seguro de cubiertas antiguas con alto contenido de sílice por zinc y teja asfáltica.
@@ -39,7 +73,7 @@ Este proyecto consistió en una **consultoría digital y desarrollo full-stack i
 
 ---
 
-## 🚀 3. Características Técnicas del Sitio
+## 🚀 4. Características Técnicas del Sitio
 
 - **Cotizador Rápido Directo a WhatsApp:** Formulario dinámico que captura los datos del cliente, comuna y tipo de trabajo, formateando un mensaje listo para enviar al equipo técnico.
 - **Filtros Interactivos de Servicios:** Clasificación instantánea sin recarga entre *Reparaciones*, *Construcción* y *Exterior*.
